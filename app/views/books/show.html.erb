@@ -1,0 +1,32 @@
+
+
+<%= @book.title %>
+
+<!-- Delete Author -->
+
+<ul>
+  <% @book.authors.each do |a| %>
+  <li>
+    <%= a.name %>
+    <%= button_to "Delete Author", author_path(a), method: :delete %>
+  </li>
+  <% end %>
+</ul>
+
+<!-- Select Authors -->
+
+<%= form_for :book_author, url: book_book_authors_path(@book.id), method: :post do |f| %>
+<%= f.collection_select :author_id, Author.all, :id, :name %>
+<%= f.submit %>
+<% end %>
+
+
+<!-- Edit Book-->
+
+<%= button_to "Edit", edit_book_path, method: :get %>
+
+<!-- Delete Book -->
+
+<%= form_for @book, method: :delete do |u| %>
+<%= u.submit value: "Delete" %>
+<% end %>

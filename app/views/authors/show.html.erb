@@ -1,0 +1,9 @@
+
+
+<%= @author.name %>
+
+<%= button_to "Edit", edit_author_path, method: :get %>
+
+<%= form_for @author, method: :delete do |u| %>
+<%= u.submit value: "Delete" %>
+<% end %>

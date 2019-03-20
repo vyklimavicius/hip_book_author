@@ -1,0 +1,6 @@
+<%# <% form_for @book, url: {action: "authorships"}, method: :post %>
+<% end %> %>
+
+<%= form_for @book, url: {action: "authorships"}, method: "post" do |t| %>
+<%= t.collection_select :author_ids, Author.all, :id, :name %>
+<% end %>
